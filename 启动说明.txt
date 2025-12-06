@@ -1,0 +1,31 @@
+如果无法自动启动开发服务器，请按照以下步骤手动操作：
+
+1. 打开 PowerShell 或命令提示符（CMD）
+
+2. 进入项目目录：
+   cd "C:\Users\23303\OneDrive\Desktop\read_AI"
+
+3. 安装依赖（如果还没有安装）：
+   npm install
+
+4. 启动开发服务器：
+   npm run dev
+
+5. 等待编译完成，看到类似以下信息：
+   ✓ Ready in X seconds
+   ○ Local:        http://localhost:3000
+
+6. 在浏览器中打开：http://localhost:3000
+
+如果遇到错误：
+- 确保已安装 Node.js（版本 18 或更高）
+- 检查网络连接（安装依赖需要网络）
+- 查看终端中的错误信息
+
+常见问题：
+1. 端口 3000 被占用：Next.js 会自动使用下一个可用端口
+2. 依赖安装失败：尝试删除 node_modules 文件夹和 package-lock.json，然后重新运行 npm install
+3. 编译错误：检查终端中的错误信息，通常是代码语法错误
+
+
+

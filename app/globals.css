@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 选中文本高亮样式 */
+.text-selection-highlight {
+  background-color: rgba(59, 130, 246, 0.3) !important;
+  color: inherit !important;
+  padding: 2px 0;
+}
+
+mark.text-selection-highlight {
+  background-color: rgba(59, 130, 246, 0.3) !important;
+  color: inherit !important;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 拖拽样式 */
+.dragging {
+  cursor: move;
+  opacity: 0.8;
+}
+
+/* 分界线样式 */
+.divider {
+  background-color: #e5e7eb;
+  cursor: col-resize;
+  user-select: none;
+}
+
+.divider-vertical {
+  width: 2px;
+  background-color: #e5e7eb;
+  cursor: col-resize;
+}
+
+.divider-horizontal {
+  height: 2px;
+  background-color: #e5e7eb;
+  cursor: row-resize;
+}
+
+.divider:hover {
+  background-color: #3b82f6;
+}
+
