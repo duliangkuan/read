@@ -33,20 +33,69 @@ vercel login
 vercel
 ```
 
-### 方法二：通过 GitHub
+### 方法二：通过 GitHub（推荐）
 
-1. 将代码推送到 GitHub 仓库
+#### 步骤 1：上传代码到 GitHub
 
-2. 在 Vercel 官网 (https://vercel.com) 登录
+1. **在 GitHub 上创建新仓库**
+   - 访问 https://github.com/new
+   - 填写仓库名称（例如：`read-ai`）
+   - 选择 Public 或 Private
+   - **不要**勾选 "Initialize this repository with a README"（因为本地已有代码）
+   - 点击 "Create repository"
 
-3. 点击 "New Project"
+2. **将本地代码推送到 GitHub**
+   
+   在项目目录下执行以下命令（替换 `YOUR_USERNAME` 和 `YOUR_REPO_NAME` 为你的实际值）：
+   
+   ```bash
+   # 添加远程仓库（如果还没有添加）
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   
+   # 或者使用 SSH（如果你配置了 SSH key）
+   # git remote add origin git@github.com:YOUR_USERNAME/YOUR_REPO_NAME.git
+   
+   # 将代码推送到 GitHub
+   git branch -M main
+   git push -u origin main
+   ```
 
-4. 导入你的 GitHub 仓库
+   如果遇到认证问题，可以使用 GitHub Personal Access Token：
+   - 访问 https://github.com/settings/tokens
+   - 生成新的 token（需要 `repo` 权限）
+   - 使用 token 作为密码进行推送
 
-5. 配置环境变量（如果需要）：
-   - `DEEPSEEK_API_KEY`: DeepSeek API密钥
+#### 步骤 2：在 Vercel 上部署
 
-6. 点击 "Deploy"
+1. **登录 Vercel**
+   - 访问 https://vercel.com
+   - 使用 GitHub 账号登录（推荐）
+
+2. **导入项目**
+   - 点击 "Add New..." → "Project"
+   - 选择你刚创建的 GitHub 仓库
+   - 点击 "Import"
+
+3. **配置项目**
+   - **Framework Preset**: Next.js（应该自动检测）
+   - **Root Directory**: `./`（默认）
+   - **Build Command**: `npm run build`（默认）
+   - **Output Directory**: `.next`（默认）
+   - **Install Command**: `npm install`（默认）
+
+4. **配置环境变量（如果需要）**
+   - 在 "Environment Variables" 部分添加：
+     - `DEEPSEEK_API_KEY`: 你的 DeepSeek API 密钥
+   - 如果 API 密钥在代码中硬编码，可以跳过此步骤
+
+5. **部署**
+   - 点击 "Deploy" 按钮
+   - 等待构建完成（通常需要 1-3 分钟）
+   - 部署成功后，Vercel 会提供一个 URL（例如：`https://your-project.vercel.app`）
+
+6. **自动部署**
+   - 之后每次推送到 GitHub 的 `main` 分支，Vercel 会自动重新部署
+   - 你可以在 Vercel 仪表板查看部署历史和状态
 
 ### 环境变量
 
